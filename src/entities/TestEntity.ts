@@ -13,6 +13,15 @@ export default class Test {
     @Column()
         name: string;
 
+    @Column()
+        categoryId: number;
+
+    @Column()
+        subjectId: number;
+
+    @Column()
+        teacherId: number;
+
     @ManyToOne(() => Category, (category) => category.tests)
         category: Category;
 

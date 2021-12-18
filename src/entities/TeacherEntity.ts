@@ -12,8 +12,8 @@ export default class Teacher {
     @Column()
         name: string;
 
-@OneToMany(() => Test, (test) => test.teacher)
-    tests: Test[];
+    @OneToMany(() => Test, (test) => test.teacher)
+        tests: Test[];
 
     @ManyToMany(() => Subject, (subject) => subject.id, { eager: true })
         @JoinTable({
