@@ -1,5 +1,5 @@
 import {
-    Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, JoinTable,
+    Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany,
 } from 'typeorm';
 import Subject from './SubjectEntity';
 import Test from './TestEntity';
@@ -16,16 +16,5 @@ export default class Teacher {
         tests: Test[];
 
     @ManyToMany(() => Subject, (subject) => subject.id, { eager: true })
-        @JoinTable({
-            name: 'subjects_teachers',
-            joinColumn: {
-                name: 'teacher_id',
-                referencedColumnName: 'id',
-            },
-            inverseJoinColumn: {
-                name: 'subject_id',
-                referencedColumnName: 'id',
-            },
-        })
         subjects: Subject[];
 }

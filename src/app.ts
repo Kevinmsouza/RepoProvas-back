@@ -4,6 +4,7 @@ import cors from 'cors';
 import 'reflect-metadata';
 import connectDatabase from './database';
 import testRouter from './Routers/testRouter';
+import teacherRouter from './Routers/teacherRouter';
 import errorMiddleware from './middlewares/errorMiddleware';
 
 const app = express();
@@ -14,6 +15,7 @@ app.get('/check-status', (req, res) => {
     res.sendStatus(200);
 });
 app.use('/tests', testRouter);
+app.use('/teachers', teacherRouter);
 app.use(errorMiddleware);
 
 export async function init() {

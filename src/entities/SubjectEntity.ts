@@ -22,14 +22,6 @@ export default class Subject {
     @ManyToMany(() => Teacher, (teacher) => teacher.id, { eager: true })
         @JoinTable({
             name: 'subjects_teachers',
-            joinColumn: {
-                name: 'subject_id',
-                referencedColumnName: 'id',
-            },
-            inverseJoinColumn: {
-                name: 'teacher_id',
-                referencedColumnName: 'id',
-            },
         })
         teachers: Teacher[];
 }
