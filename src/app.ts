@@ -5,6 +5,7 @@ import 'reflect-metadata';
 import connectDatabase from './database';
 import testRouter from './Routers/testRouter';
 import teacherRouter from './Routers/teacherRouter';
+import subjectRouter from './Routers/subjectRouter';
 import errorMiddleware from './middlewares/errorMiddleware';
 
 const app = express();
@@ -16,6 +17,7 @@ app.get('/check-status', (req, res) => {
 });
 app.use('/tests', testRouter);
 app.use('/teachers', teacherRouter);
+app.use('/subjects', subjectRouter);
 app.use(errorMiddleware);
 
 export async function init() {

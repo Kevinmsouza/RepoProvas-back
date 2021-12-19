@@ -1,10 +1,8 @@
-import { getManager } from 'typeorm';
+import { getRepository } from 'typeorm';
+import Teacher from '../entities/TeacherEntity';
 
 async function listTeachers() {
-    const teachers = await getManager().query(`
-        SELECT * FROM teachers
-        LIMIT 1000
-    ;`);
+    const teachers = await getRepository(Teacher).find();
     return teachers;
 }
 

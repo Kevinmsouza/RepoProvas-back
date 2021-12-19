@@ -1,5 +1,5 @@
 import {
-    Entity, PrimaryGeneratedColumn, Column, ManyToOne,
+    Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn,
 } from 'typeorm';
 import Category from './CategoryEntity';
 import Subject from './SubjectEntity';
@@ -23,12 +23,15 @@ export default class Test {
         teacherId: number;
 
     @ManyToOne(() => Category, (category) => category.tests)
+        @JoinColumn({ name: 'categoryId' })
         category: Category;
 
     @ManyToOne(() => Subject, (subject) => subject.tests)
+        @JoinColumn({ name: 'subjectId' })
         subject: Subject;
 
     @ManyToOne(() => Teacher, (teacher) => teacher.tests)
+        @JoinColumn({ name: 'teacherId' })
         teacher: Teacher;
 
     @Column()

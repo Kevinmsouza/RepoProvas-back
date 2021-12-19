@@ -1,7 +1,6 @@
 import {
-    Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany,
+    Entity, PrimaryGeneratedColumn, Column, OneToMany,
 } from 'typeorm';
-import Subject from './SubjectEntity';
 import Test from './TestEntity';
 
 @Entity('teachers')
@@ -14,7 +13,4 @@ export default class Teacher {
 
     @OneToMany(() => Test, (test) => test.teacher)
         tests: Test[];
-
-    @ManyToMany(() => Subject, (subject) => subject.id, { eager: true })
-        subjects: Subject[];
 }
