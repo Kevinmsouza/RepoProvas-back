@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm';
+import Category from '../entities/CategoryEntity';
 import Test from '../entities/TestEntity';
 
 interface TestCreate {
@@ -15,6 +16,12 @@ async function createTest(test: TestCreate) {
     return newTest;
 }
 
+async function listTestsByCategory() {
+    const categories = await getRepository(Category).find({ relations: ['tests'] });
+    return categories.map((category) => category.getTestsByCategory());
+}
+
 export {
     createTest,
+    listTestsByCategory,
 };

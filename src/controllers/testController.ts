@@ -12,6 +12,16 @@ async function createTest(req: Request, res: Response, next: NextFunction) {
     }
 }
 
+async function listTestsByCategory(req: Request, res: Response, next: NextFunction) {
+    try {
+        const result = await testService.listTestsByCategory();
+        res.send(result);
+    } catch (error) {
+        next(error);
+    }
+}
+
 export {
     createTest,
+    listTestsByCategory,
 };
