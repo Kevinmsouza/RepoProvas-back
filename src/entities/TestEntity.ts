@@ -26,11 +26,11 @@ export default class Test {
         @JoinColumn({ name: 'categoryId' })
         category: Category;
 
-    @ManyToOne(() => Subject, (subject) => subject.tests)
+    @ManyToOne(() => Subject, (subject) => subject.tests, { eager: true })
         @JoinColumn({ name: 'subjectId' })
         subject: Subject;
 
-    @ManyToOne(() => Teacher, (teacher) => teacher.tests)
+    @ManyToOne(() => Teacher, (teacher) => teacher.tests, { eager: true })
         @JoinColumn({ name: 'teacherId' })
         teacher: Teacher;
 

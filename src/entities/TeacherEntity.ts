@@ -11,7 +11,7 @@ export default class Teacher {
     @Column()
         name: string;
 
-    @OneToMany(() => Test, (test) => test.teacher, { eager: true })
+    @OneToMany(() => Test, (test) => test.teacher)
         tests: Test[];
 
     getTeacher() {

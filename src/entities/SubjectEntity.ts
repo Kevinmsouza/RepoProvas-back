@@ -17,7 +17,7 @@ export default class Subject {
         @JoinColumn({ name: 'termId' })
         term: Term;
 
-    @OneToMany(() => Test, (test) => test.subject, { eager: true })
+    @OneToMany(() => Test, (test) => test.subject)
         tests: Test[];
 
     @ManyToMany(() => Teacher, (teacher) => teacher.id, { eager: true })
