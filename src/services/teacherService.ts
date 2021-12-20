@@ -3,7 +3,7 @@ import Teacher from '../entities/TeacherEntity';
 
 async function listTeachers() {
     const teachers = await getRepository(Teacher).find();
-    return teachers;
+    return teachers.map((teacher) => teacher.getTeacher());
 }
 
 export {

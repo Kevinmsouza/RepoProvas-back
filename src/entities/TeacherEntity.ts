@@ -11,6 +11,14 @@ export default class Teacher {
     @Column()
         name: string;
 
-    @OneToMany(() => Test, (test) => test.teacher)
+    @OneToMany(() => Test, (test) => test.teacher, { eager: true })
         tests: Test[];
+
+    getTeacher() {
+        return {
+            id: this.id,
+            name: this.name,
+            testsQtd: this.tests.length,
+        };
+    }
 }

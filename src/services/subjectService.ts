@@ -3,7 +3,7 @@ import Subject from '../entities/SubjectEntity';
 
 async function listSubjects() {
     const subjects = await getRepository(Subject).find();
-    return subjects;
+    return subjects.map((subject) => subject.getSubject());
 }
 
 export {
