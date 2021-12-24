@@ -21,6 +21,7 @@ export default class Category {
             tests: this.tests.map((test) => ({
                 id: test.id,
                 name: test.name,
+                url: test.url,
                 subject: {
                     id: test.subject.id,
                     name: test.subject.name,
